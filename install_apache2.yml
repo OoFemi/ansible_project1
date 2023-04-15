@@ -1,12 +1,12 @@
 ---
 
 - hosts: all
-  become: true
+  become: yes
   tasks:
 
   
   
-  - name: install apache2 and php  packages
+  - name: install apache2 and php  packages for ubuntu
     apt:
       name:
         - apache2
@@ -16,7 +16,7 @@
     when: ansible_distribution == "ubuntu"
 
 
-  - name: install apache2 and php packages
+  - name: install apache2 and php packages for centOS
     dnf:
       name: 
       - httpd

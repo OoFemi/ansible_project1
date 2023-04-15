@@ -1,3 +1,9 @@
+[web_servers]
 femi@192.168.43.230
-femi@192.168.43.134
 femi@192.168.43.178
+
+[db_servers]
+femi@192.168.43.178
+
+[file_servers]
+femi@192.168.43.134
