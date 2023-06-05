@@ -16,6 +16,25 @@
      upgrade_cache: yes
     when: ansible_distribution == "centos" 
 
+- hosts: workstation
+  become: true
+  tasks:
+  
+  - name: install unzip
+    package:
+      name: unzip
+
+  - name: install terraform
+    unarchive:
+      src:  https://releases.hashicorp.com/terraform/1.4.5/terraform_1.4.5_linux_amd64.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      mode: 0755
+      0wner: root
+      group: root
+
+
+
 
 - hosts: web_servers
   become: true
@@ -37,6 +56,15 @@
       - php
       state: latest
     when: ansible_distribution == "CentOS"
+
+
+  - name: start httpd (centos)
+    tags: apache,centos,httpd
+    service:
+      name: httpd
+      state: started
+    when: ansible_distribution  == "centos"
+
 
   - name: copy default html file for site
     tags: apache,apache2,httpd
