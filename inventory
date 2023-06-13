@@ -1,16 +1,14 @@
 [web_servers]
-femi@192.168.0.107
-femi@192.168.0.244
-femi@192.168.0.247
+femi@192.168.0.220
 femi@172.17.2.13
+erp@3.225.134.173
 
 [db_servers]
-femi@192.168.0.247
-femi@192.168.0.244
+
+
 
 [file_servers]
-femi@192.168.0.244
-femi@192.168.0.107
+
 
 [workstation]
-femi@192.168.0.108
+

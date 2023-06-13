@@ -5,15 +5,17 @@
   tasks:
 
   - name: install updates (ubuntu)
+    tags: always
     apt: 
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install update (CentOS)
+  - name: install updates (CentOS)
+    tags: always
     dnf:
-     update_only: yes
-     upgrade_cache: yes
+      update_only: yes
+      update_cache: yes
     when: ansible_distribution == "centos" 
 
 - hosts: workstation
@@ -59,11 +61,12 @@
 
 
   - name: start httpd (centos)
-    tags: apache,centos,httpd
+    tags: apache, centos, httpd
     service:
       name: httpd
       state: started
-    when: ansible_distribution  == "centos"
+      enabled: yes
+    when: ansible_distribution  == "centOS"
 
 
   - name: copy default html file for site
